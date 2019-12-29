@@ -1,15 +1,59 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
+## makeCacheMatrix: This function creates a special "matrix" object that can cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-
+        m<-NULL
+        set<-function(y) {
+                x<<-y
+        m<<-NULL
+}
+get<-function()x
+setmean<-function(mean)m<<- mean
+getmean<- function()m
+list(set=set, get=get, 
+     seatmean=seatmean,
+     getmean=getmean)
 }
 
-
-## Write a short comment describing this function
+## The following function calculates the mean of the special vector
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        m <-x$getmean()
+        if(!is.null(m) {
+                message ("getting cache data")
+                return(m)
+ }
+           data <- x$get()
+           m <- mean(data, ...)
+           x$setmean(m)
+           m
+ }
+        ## Below is the functions that cache the inverse of a matrix
+           
+ ##makecachematrix
+ makecachematrix <- function(x = matrix()) {
+         q <- NULL
+         set<-function(y) {
+                x<<-y
+        q <<-NULL
 }
+ get<-function()x
+setinverse<-function(inverse)q<<- inverse
+getinverse<- function()q
+list(set=set, get=get, 
+     seatinverse=seatinverse,
+     getinverse=getinverse)
+}
+
+      
+##cacheSolve:The below function computes the inverse of matrix
+     cacheSolve <- function(x, ...) {
+        q <-x$getinverse()
+        if(!is.null(q) {
+                message ("getting cache data")
+                return(q)
+ }
+           mat <- x$get()
+           q <- inverse(mat, ...)
+           x$setinverse(q)
+           q
+ }      
